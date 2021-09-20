@@ -3,3 +3,8 @@
 body {
 background-color:lightblue;
 }
+
+#stuff {
+  width:50px;
+ float:left;
+ margin:10px;
