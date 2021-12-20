@@ -34,15 +34,7 @@
                         </tr> 
                 </th>
         
- 
-        
-     
-                    
-              
-       
-
-            
-              //globals
+ //globals
 var scene = 0; //0 for splash, 1-10 for questions, 11 for results, 12 for leaderboard
 var quiz = 0; // 0 for pokemon, 1 and 2 TBA
 var leaderBoard = [];// array which records results of tests since the start of program
@@ -83,111 +75,6 @@ Button.prototype.handleMouseClick = function() {
 };
 //functions
 
-//functions for drawing pokemon
-var drawHeadCharmander=function(bitmojiX,bitmojiY,bitmojiH){
-    var r = bitmojiH/80; 
-    fill(255, 157, 0);//skin
-    ellipse(bitmojiX+r*50,bitmojiY+r*50,r*80,r*87);//head
-    arc(bitmojiX+r*50,bitmojiY+r*71,r*25,r*12,5,175);//mouth
-
-    fill (0,0,0);
-    ellipse(bitmojiX+r*35,bitmojiY+r*48,r*10,r*10);//left eye
-    ellipse(bitmojiX+r*65,bitmojiY+r*48,r*10,r*10);//right eye
-};
-var drawBodyCharmander= function(bitmojiX,bitmojiY,bitmojiH){
-    var r = bitmojiH/80; 
-    fill(255, 157, 0);//skin
-    triangle(bitmojiX+r*-9,bitmojiY+r*90,bitmojiX+r*10,bitmojiY+r*140,bitmojiX+r*24,bitmojiY+r*140);//tail
-    rect(bitmojiX+r*10, bitmojiY+r*90, r*80, r*80, r*25);//body
-    fill(255, 0, 0);
-    triangle(bitmojiX+r*-9,bitmojiY+r*74,bitmojiX+r*-18,bitmojiY+r*89,bitmojiX+r*-4,bitmojiY+r*90);//flame
-    
-
-};
-var drawCharmander= function(bitmojiX,bitmojiY,bitmojiH){
-    drawBodyCharmander(bitmojiX,bitmojiY,bitmojiH);
-    drawHeadCharmander(bitmojiX,bitmojiY,bitmojiH);
-};
-
-var drawHeadPikachu=function(bitmojiX,bitmojiY,bitmojiH){
-    var r = bitmojiH/80; 
-    fill(255, 251, 0);//fur
-    triangle(bitmojiX+r*11, bitmojiY+r*-15,bitmojiX+r*22, bitmojiY+r*24,bitmojiX+r*11, bitmojiY+r*42);//left ear
-    triangle(bitmojiX+r*89, bitmojiY+r*-15,bitmojiX+r*77, bitmojiY+r*24,bitmojiX+r*88, bitmojiY+r*42);//right ear
-    fill(74, 49, 2);// ear tips
-    triangle(bitmojiX+r*11, bitmojiY+r*-15,bitmojiX+r*15, bitmojiY+r*2,bitmojiX+r*11, bitmojiY+r*10);//left ear tip
-    triangle(bitmojiX+r*89, bitmojiY+r*-15,bitmojiX+r*84, bitmojiY+r*2,bitmojiX+r*88, bitmojiY+r*10);//right ear tip
-    fill(255, 251, 0);//fur
-    ellipse(bitmojiX+r*50,bitmojiY+r*50,r*80,r*80);//head
-    arc(bitmojiX+r*50,bitmojiY+r*71,r*25,r*12,5,175);//mouth
-    fill(255, 0, 0);//cheek color
-    ellipse(bitmojiX+r*30,bitmojiY+r*65,r*10,r*10);//left cheek
-    ellipse(bitmojiX+r*70,bitmojiY+r*65,r*10,r*10);//right cheek
-    fill (0,0,0);
-    ellipse(bitmojiX+r*35,bitmojiY+r*48,r*10,r*10);//left eye
-    ellipse(bitmojiX+r*65,bitmojiY+r*48,r*10,r*10);//right eye
-};
-var drawBodyPikachu= function(bitmojiX,bitmojiY,bitmojiH){
-    var r = bitmojiH/80; 
-    fill(255, 251, 0);//fur
-    triangle(bitmojiX+r*-30,bitmojiY+r*50,bitmojiX+r*1,bitmojiY+r*50,bitmojiX+r*24,bitmojiY+r*140);//tail
-    rect(bitmojiX+r*10, bitmojiY+r*90, r*80, r*80, r*25);//body
-
-};
-var drawPikachu= function(bitmojiX,bitmojiY,bitmojiH){
-    drawHeadPikachu(bitmojiX,bitmojiY,bitmojiH);
-    drawBodyPikachu(bitmojiX,bitmojiY,bitmojiH);
-};
-
-var drawHeadSquirtle=function(bitmojiX,bitmojiY,bitmojiH){
-    var r = bitmojiH/80; 
-    fill(118, 235, 237);//skin
-    ellipse(bitmojiX+r*50,bitmojiY+r*50,r*80,r*87);//head
-    arc(bitmojiX+r*50,bitmojiY+r*71,r*25,r*12,5,175);//mouth
-
-    fill (0,0,0);
-    ellipse(bitmojiX+r*35,bitmojiY+r*48,r*10,r*10);//left eye
-    ellipse(bitmojiX+r*65,bitmojiY+r*48,r*10,r*10);//right eye
-};
-var drawBodySquirtle= function(bitmojiX,bitmojiY,bitmojiH){
-    var r = bitmojiH/80; 
-    fill(118, 235, 237);//skin
-    triangle(bitmojiX+r*-30,bitmojiY+r*50,bitmojiX+r*1,bitmojiY+r*50,bitmojiX+r*24,bitmojiY+r*140);//tail
-    fill(140, 108, 21);//shell color
-    ellipse(bitmojiX+r*50,bitmojiY+r*126,r*89,r*94);//shell
-    fill(242, 242, 162);//skin
-    rect(bitmojiX+r*10, bitmojiY+r*90, r*80, r*80, r*25);//body
-    
-    
-
-};
-var drawSquirtle= function(bitmojiX,bitmojiY,bitmojiH){
-    drawBodySquirtle(bitmojiX,bitmojiY,bitmojiH);
-    drawHeadSquirtle(bitmojiX,bitmojiY,bitmojiH);
-};
-
-var drawHeadBulbasaur=function(bitmojiX,bitmojiY,bitmojiH){
-    var r = bitmojiH/80; 
-    fill(214, 255, 173);//skin
-    ellipse(bitmojiX+r*43,bitmojiY+r*50,r*80,r*80);//head
-    arc(bitmojiX+r*50,bitmojiY+r*71,r*25,r*12,5,175);//mouth
-    fill(181, 70, 70);//eye color
-    ellipse(bitmojiX+r*35,bitmojiY+r*48,r*15,r*15);//left eye
-    ellipse(bitmojiX+r*65,bitmojiY+r*48,r*15,r*15);//right eye
-};
-var drawBodyBulbasaur= function(bitmojiX,bitmojiY,bitmojiH){
-    var r = bitmojiH/80; 
-    fill(6, 94, 22);//bulb color
-    ellipse(bitmojiX+r*4,bitmojiY+r*38,r*80,r*80);//bulb
-    fill(214, 255, 173);//skin
-    rect(bitmojiX+r*-40, bitmojiY+r*40, r*80, r*75, r*25);//body
-    fill(0, 0, 0);
-};
-var drawBulbasaur= function(bitmojiX,bitmojiY,bitmojiH){
-    drawBodyBulbasaur(bitmojiX,bitmojiY,bitmojiH);
-    drawHeadBulbasaur(bitmojiX,bitmojiY,bitmojiH);
-};
-
 //functions for Jared's Bitmoji
 var drawHeadJared=function(bitmojiX,bitmojiY,bitmojiH){
     var r = bitmojiH/80; 
@@ -227,85 +114,6 @@ var drawBitmojiJared= function(bitmojiX,bitmojiY,bitmojiH){
     drawHeadJared(bitmojiX,bitmojiY,bitmojiH);
     drawBodyJared(bitmojiX,bitmojiY,bitmojiH);
 };
-
-//function for Damien's Bitmoji 
-var drawBitmojiHead = function(bitmojiX, bitmojiY,meHeight){
-    
- fill(255, 255, 255);
-fill(175, 110, 34); //skin tone
-ellipse(bitmojiX +132*(meHeight/100),bitmojiY-6*(meHeight/100), 77*(meHeight/100), 75*(meHeight/100)); // head
-fill(255,255, 255);
-arc(bitmojiX + 110*(meHeight/100),bitmojiY+24*(meHeight/100),28*(meHeight/100), 55*(meHeight/100), 0,361); //left chin
-arc(bitmojiX + 160*(meHeight/100),bitmojiY+24*(meHeight/100),28*(meHeight/100), 55*(meHeight/100), 0,361); //right chin
-fill(8, 8, 8);
-arc(bitmojiX +134 *(meHeight/100) ,bitmojiY+24*(meHeight/100),20*(meHeight/100), 12*(meHeight/100), 1,180);//chin hair
-
-ellipse(bitmojiX +133*(meHeight/100),bitmojiY-35*(meHeight/100), 37*(meHeight/100), 22*(meHeight/100));// middle hat 1
-ellipse(bitmojiX+160*(meHeight/100),bitmojiY-40*(meHeight/100), 36*(meHeight/100), 13*(meHeight/100));// middle hat 2
-
-
-fill(128,128,128);//brim
-
-rect(bitmojiX+128*(meHeight/100),bitmojiY-28*(meHeight/100),14*(meHeight/100), 6*(meHeight/100)); //hat strap
-
-fill(225, 225, 225);
-ellipse(bitmojiX+121*(meHeight/100),bitmojiY-13*(meHeight/100),17*(meHeight/100),15*(meHeight/100));// left glasses 1
-ellipse(bitmojiX+147*(meHeight/100),bitmojiY-12*(meHeight/100),17*(meHeight/100),15*(meHeight/100));//right glaases 1
-rect(bitmojiX +153*(meHeight/100),bitmojiY-14*(meHeight/100),9*(meHeight/100),4*(meHeight/100));// left glass on ears
-rect(bitmojiX+105*(meHeight/100),bitmojiY-15*(meHeight/100),20*(meHeight/100),4*(meHeight/100));//right glass on ears
-
-rect(bitmojiX+128*(meHeight/100),bitmojiY-15*(meHeight/100),16*(meHeight/100),4*(meHeight/100));// eye glass bridge
-fill(175, 110, 34); //skin tone in eyes
-ellipse(bitmojiX+121*(meHeight/100),bitmojiY-13*(meHeight/100),10*(meHeight/100),10*(meHeight/100)); //left glass 2
-ellipse(bitmojiX+147*(meHeight/100),bitmojiY-12*(meHeight/100),10*(meHeight/100),10*(meHeight/100));//right glasses 2
-rect(bitmojiX+129 *(meHeight/100),bitmojiY-27*(meHeight/100),13*(meHeight/100),-4*(meHeight/100));// forhead
-
-fill(8, 8, 8);
-ellipse(bitmojiX+148*(meHeight/100),bitmojiY-11*(meHeight/100),6*(meHeight/100),6*(meHeight/100));// eyes
-ellipse(bitmojiX+122*(meHeight/100),bitmojiY-12*(meHeight/100),6*(meHeight/100),6*(meHeight/100));//eyes
-
-bezier(bitmojiX+144 *(meHeight/100)  ,bitmojiY+3*(meHeight/100),bitmojiX + 131*(meHeight/100) ,bitmojiY+3*(meHeight/100)  ,bitmojiX +130*(meHeight/100),  bitmojiY-28*(meHeight/100),bitmojiX+124 *(meHeight/100), bitmojiY+4*(meHeight/100) ); // nose back ground 
-fill(175, 110, 34); //skin tone
-bezier(bitmojiX+136*(meHeight/100) ,bitmojiY-1*(meHeight/100),bitmojiX + 131*(meHeight/100) ,bitmojiY+12*(meHeight/100)  ,bitmojiX +132*(meHeight/100),  bitmojiY-32*(meHeight/100),bitmojiX+124 *(meHeight/100), bitmojiY+4 *(meHeight/100) ); // nose back ground  // nose back ground // nose skin color 
-
-fill(255,255,255);
-
-arc(bitmojiX +132 *(meHeight/100), bitmojiY+12*(meHeight/100), 14*(meHeight/100),15*(meHeight/100) ,3,180); // smile 
-
-}; 
-var drawBitmojiBody = function(bitmojiX, bitmojiY,meHeight){
-
-fill(8,8,8);
-arc(bitmojiX+133*(meHeight/100), bitmojiY+55*(meHeight/100), 102*(meHeight/100),45*(meHeight/100),180,360); //sholders / shirt
-rect(bitmojiX+82*(meHeight/100),bitmojiY +54*(meHeight/100),102 *(meHeight/100),50*(meHeight/100));// bottome of shirt 
-
-fill(175, 110, 34);
-arc(bitmojiX+135*(meHeight/100),bitmojiY+30*(meHeight/100),24*(meHeight/100), 18*(meHeight/100), -20,201);//neck1
-//rect(bitmojiX - 16 ,bitmojiY +70,31,17);//neck 2
-triangle(bitmojiX +136 *(meHeight/100) ,bitmojiY +58*(meHeight/100),bitmojiX+147*(meHeight/100),bitmojiY +32*(meHeight/100),bitmojiX+122*(meHeight/100),bitmojiY+37*(meHeight/100));//neck 2
-
-fill(255, 255, 255);
-
-rect(bitmojiX+100*(meHeight/100),bitmojiY + 61*(meHeight/100),6*(meHeight/100),45*(meHeight/100));// D shirt
-rect(bitmojiX+106*(meHeight/100),bitmojiY+64*(meHeight/100),6*(meHeight/100),10*(meHeight/100));// D shirt
-rect(bitmojiX+112*(meHeight/100),bitmojiY +72*(meHeight/100),6*(meHeight/100),10*(meHeight/100));// D shirt
-rect(bitmojiX+113*(meHeight/100),bitmojiY +82*(meHeight/100),6*(meHeight/100),10*(meHeight/100));// D shirt
-rect(bitmojiX+109*(meHeight/100),bitmojiY+92*(meHeight/100),6*(meHeight/100),10*(meHeight/100));// D shirt
-rect(bitmojiX+106*(meHeight/100),bitmojiY+96*(meHeight/100),6*(meHeight/100),10*(meHeight/100));// D shirt
-
-rect(bitmojiX + 175*(meHeight/100),bitmojiY +61*(meHeight/100),-29*(meHeight/100),8*(meHeight/100));// J shirt
-rect(bitmojiX+164*(meHeight/100),bitmojiY+66*(meHeight/100),-7*(meHeight/100),26*(meHeight/100));// J shirt
-rect(bitmojiX+154*(meHeight/100),bitmojiY+87*(meHeight/100),6*(meHeight/100),10*(meHeight/100));// J shirt
-rect(bitmojiX+149*(meHeight/100),bitmojiY+88*(meHeight/100),6*(meHeight/100),10*(meHeight/100));// J shirt
-
-};
-var realme =function (bitmojiX,bitmojiY,meHeight){ 
-  drawBitmojiHead(bitmojiX,bitmojiY,meHeight);
-   drawBitmojiBody(bitmojiX,bitmojiY,meHeight);
-  
-};
-
-
 
 //this function is used in the scoring functions to select the result
 //it finds the position of the element of the array with the highest value
@@ -1432,9 +1240,7 @@ var btnTenFour = new Button({
 var splash = function(){
     background(130, 225, 255);
     
-    //Bitmoji Charcter 
     drawBitmojiJared(22,190,60);
-    realme(244,231,65);
    
     textSize(25);
     text("Fun Personality Tests", 80,20);
@@ -1451,68 +1257,63 @@ var splash = function(){
 var results = function(){
     background(130, 225, 255);
     textSize(25);
-    text("Results", 80,30);
+    text("Results", 80,135);
     btnMainMenu.draw();
     textSize(25);
     
     if(scoreTest(answerArray) === 0){
         if(quiz === 0){
-            drawCharmander(150,100,80);
-            text("Charmander", 130,300);
+            text("Charmander", 135,200);
             leaderBoard.push("Charmander");
         }
         else if(quiz === 1){
-            text("Charmander", 130,300);
+            text("Charmander", 135,200);
             leaderBoard.push("Charmander");
         }
         else if(quiz === 2){
-            text("Charmander", 130,300);
+            text("Charmander", 135,200);
             leaderBoard.push("Charmander");
         }
     }
     else if(scoreTest(answerArray) === 1){
         if(quiz === 0){
-            drawPikachu(150, 100, 80);
-            text("Pikachu", 130,300);
+            text("Pikachu", 135,200);
             leaderBoard.push("Pikachu");
         }
         else if(quiz === 1){
-            text("Pikachu", 130,300);
+            text("Pikachu", 135,200);
             leaderBoard.push("Pikachu");
         }
         else if(quiz === 2){
-            text("Pikachu", 130,300);
+            text("Pikachu", 135,200);
             leaderBoard.push("Pikachu");
         }
     }
     else if(scoreTest(answerArray) === 2){
         if(quiz === 0){
-            drawSquirtle(150, 100, 80);
-            text("Squirtle", 130,300);
+            text("Squirtle", 135,200);
             leaderBoard.push("Squirtle");
         }
         else if(quiz === 1){
-            text("Squirtle", 130,300);
+            text("Squirtle", 135,200);
             leaderBoard.push("Squirtle");
         }
         else if(quiz === 2){
-            text("Squirtle", 130,300);
+            text("Squirtle", 135,200);
             leaderBoard.push("Squirtle");
         }
     }
     else if(scoreTest(answerArray) === 3){
         if(quiz === 0){
-             drawBulbasaur(172,136,89);
-             fill(0, 0, 0);
-             text("Bulbasaur", 130,300);
+             text("Bulbasaur", 135,200);
              leaderBoard.push("Bulbasaur");
         }
         else if(quiz === 1){
-             text("Bulbasaur", 130,300);
+             text("Bulbasaur", 135,200);
              leaderBoard.push("Bulbasaur");
         }
         else if(quiz === 2){
-             text("Bulbasaur", 130,300);
+             text("Bulbasaur", 135,200);
              leaderBoard.push("Bulbasaur");
         }
     }
@@ -1959,9 +1760,22 @@ mouseClicked = function() {
     btnMainMenu.handleMouseClick();
     }
 };
+© 2021 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
 
-           
+        
+     
                     
-                   
-           
+              
+       
 </html>
