@@ -1,5 +1,5 @@
-# This is My online coding portfolio
+# Original Class Project
 
-## TO View my page the link is ==> https://ddjohnson21.github.io/index.html
+## TO View my Class Project linked here ==> https://ddjohnson21.github.io/index.html
 
 
